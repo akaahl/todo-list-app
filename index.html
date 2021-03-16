@@ -1,36 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-  <script src="script.js" defer></script>
-  <title>Todo app</title>
-</head>
-<body>
-  <header>
-    <img src="images/bg-desktop-dark.jpg" class="desktop-img" alt="background-img">
-    <img src="images/bg-desktop-light.jpg" class="mobile-img" alt="background-img">
-  </header> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script src="script.js" defer></script>
+    <title>Todo app</title>
+  </head>
+  <body>
+    <header>
+      <img
+        src="images/bg-desktop-dark.jpg"
+        class="desktop-img"
+        alt="background-img"
+      />
+      <img
+        src="images/bg-desktop-light.jpg"
+        class="mobile-img"
+        alt="background-img"
+      />
+    </header>
 
-  <main class="main-container">
-    <div class="header-section">
-      <h1>Todo</h1>
-      <img src="images/icon-sun.svg" class="day-mode" alt="color-mode-logo">  
-      <img src="images/icon-moon.svg" class="night-mode" alt="color-mode-logo">
-    </div>
-      
-    <div class="create-list">
-      <input type="radio" name="radio" id="create-list-radio">
-      <input type="text" name="text" id="create-list-text" placeholder="Create a new todo..">
-    </div>
-  </main>
-  
+    <main class="main-container">
+      <div class="header-section">
+        <h1>Todo</h1>
+        <img src="images/icon-sun.svg" class="day-mode" alt="color-mode-logo" />
+        <img
+          src="images/icon-moon.svg"
+          class="night-mode"
+          alt="color-mode-logo"
+        />
+      </div>
 
-  
-</body>
+      <div class="create-list">
+        <input type="radio" name="radio" id="create-list-radio" />
+        <input
+          type="text"
+          name="text"
+          id="create-list-text"
+          placeholder="Create a new todo.."
+        />
+      </div>
+
+      <div class="list-items">
+        <ul>
+          <li>
+            <input type="radio" name="list-items-radio" />
+            <div class="item-1">
+              <span>Eat Chicken</span>
+              <img
+                src="images/icon-cross.svg"
+                alt="cross-icon"
+                id="delete-item-1"
+              />
+            </div>
+          </li>
+
+          <li>
+            <input type="radio" name="list-items-radio" />
+            <div class="item-2">
+              <span>Drink water</span>
+              <img
+                src="images/icon-cross.svg"
+                alt="cross-icon"
+                id="delete-item-2"
+              />
+            </div>
+          </li>
+
+          <li>
+            <input type="radio" name="list-items-radio" />
+            <div class="item-3">
+              <span>Do project</span>
+              <img
+                src="images/icon-cross.svg"
+                alt="cross-icon"
+                id="delete-item-3"
+              />
+            </div>
+          </li>
+
+          <li>
+            <div class="no-of-items">3 items left</div>
+            <div class="items-status">
+              <button id="show-all">All</button>
+              <button id="show-active">Active</button>
+              <button id="show-completed">Completed</button>
+            </div>
+            <div class="clear-items">
+              <button id="clear-completed">Clear Completed</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
 </html>

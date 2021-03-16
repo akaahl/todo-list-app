@@ -106,7 +106,7 @@ header .mobile-img {
 }
 
 .main-container .create-list input[type="radio"]::after {
-  content: '';
+  content: "";
   position: absolute;
   transform: translate(1px, 1px);
   height: 18px;
@@ -129,10 +129,126 @@ header .mobile-img {
   background: var(--very-dark-desaturated-blue);
   color: var(--light-grayish-blue);
   caret-color: var(--bright-blue);
+  font: 14px "Josefin Sans";
 }
-
-
 
 .main-container .create-list input[type="text"]::placeholder {
   color: var(--dark-grayish-blue);
+}
+
+.main-container .list-items {
+  width: 37%;
+  position: absolute;
+  top: 225px;
+}
+
+.main-container .list-items ul {
+  list-style: none;
+}
+
+.main-container .list-items ul li {
+  background: var(--very-dark-desaturated-blue);
+  padding: 1rem;
+
+  border-bottom: 1px solid var(--very-dark-grayish-blue);
+  color: var(--light-grayish-blue);
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.main-container .list-items ul li:first-child {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.main-container .list-items ul li:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-container .list-items ul li:last-child .no-of-items {
+  color: var(--dark-grayish-blue);
+}
+
+.main-container .list-items ul li:last-child .items-status button,
+.main-container .list-items ul li:last-child .clear-items button {
+  background: none;
+  border: none;
+  outline: none;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: "Josefin Sans", serif;
+  color: var(--dark-grayish-blue);
+  cursor: pointer;
+}
+
+.main-container .list-items ul li:last-child .items-status button {
+  margin-left: 15px;
+}
+
+.main-container .list-items ul li:last-child .items-status button:first-child {
+  color: var(--bright-blue);
+}
+
+.main-container
+  .list-items
+  ul
+  li:last-child
+  .items-status
+  button:not(:first-child):hover,
+.main-container .list-items ul li:last-child .clear-items button:hover {
+  color: var(--very-light-gray);
+}
+
+.main-container .list-items ul li input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: var(--very-dark-grayish-blue);
+  outline: none;
+  cursor: pointer;
+}
+
+.main-container .list-items ul li input[type="radio"]::after {
+  content: "";
+  position: absolute;
+  transform: translate(1px, 1px);
+  height: 18px;
+  width: 18px;
+  background: var(--very-dark-desaturated-blue);
+  border-radius: 50%;
+}
+
+.main-container .list-items ul li input[type="radio"]:hover {
+  background: var(--check-background);
+}
+
+.main-container .list-items ul li .item-1 {
+  margin-left: 20px;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-container .list-items ul li .item-1 span {
+  cursor: pointer;
+}
+
+.main-container .list-items ul li .item-1 img {
+  display: none;
+  cursor: pointer;
+}
+
+.main-container .list-items ul li .item-1:hover > img {
+  display: block;
 }
