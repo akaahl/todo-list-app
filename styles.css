@@ -95,27 +95,44 @@ header .mobile-img {
 
 .main-container .create-list input[type="radio"] {
   appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  border: 1px solid var(--very-dark-grayish-blue);
+  background: var(--very-dark-grayish-blue);
   outline: none;
   cursor: pointer;
 }
 
+.main-container .create-list input[type="radio"]::after {
+  content: '';
+  position: absolute;
+  transform: translate(1px, 1px);
+  height: 18px;
+  width: 18px;
+  background: var(--very-dark-desaturated-blue);
+  border-radius: 50%;
+}
+
 .main-container .create-list input[type="radio"]:hover {
-  border: 2px solid var(--check-background);
+  background: var(--check-background);
 }
 
 .main-container .create-list input[type="text"] {
   margin-left: 20px;
   appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   border: 0;
   outline: none;
   background: var(--very-dark-desaturated-blue);
   color: var(--light-grayish-blue);
+  caret-color: var(--bright-blue);
 }
 
+
+
 .main-container .create-list input[type="text"]::placeholder {
-  color: var(--light-grayish-blue);
+  color: var(--dark-grayish-blue);
 }
