@@ -232,7 +232,7 @@ header .mobile-img {
   background: var(--check-background);
 }
 
-.main-container .list-items ul li .item-1 {
+.main-container .list-items ul li .todo-items {
   margin-left: 20px;
   width: 90%;
   display: flex;
@@ -240,15 +240,15 @@ header .mobile-img {
   justify-content: space-between;
 }
 
-.main-container .list-items ul li .item-1 span {
+.main-container .list-items ul li .todo-items span {
   cursor: pointer;
 }
 
-.main-container .list-items ul li .item-1 img {
+.main-container .list-items ul li .todo-items img {
   display: none;
   cursor: pointer;
 }
 
-.main-container .list-items ul li .item-1:hover > img {
+.main-container .list-items ul li .todo-items:hover > img {
   display: block;
 }
