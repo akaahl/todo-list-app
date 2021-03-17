@@ -142,6 +142,7 @@ header .mobile-img {
   width: 37%;
   position: absolute;
   top: 225px;
+  box-shadow: 3px 20px 40px 10px rgba(0,0,0,0.4);
 }
 
 .main-container .list-items ul {
@@ -151,13 +152,16 @@ header .mobile-img {
 .main-container .list-items ul li {
   background: var(--very-dark-desaturated-blue);
   padding: 1rem;
-
   border-bottom: 1px solid var(--very-dark-grayish-blue);
   color: var(--light-grayish-blue);
   display: flex;
   align-items: center;
   font-size: 14px;
   font-weight: 400;
+}
+
+.main-container .list-items ul .individual-list.dragging {
+  opacity: 0.5;
 }
 
 .main-container .list-items ul li:first-child {
@@ -267,6 +271,7 @@ header .mobile-img {
 
 .main-container .list-items ul li .todo-items span {
   cursor: pointer;
+  user-select: none;
 }
 
 .main-container .list-items ul li .todo-items img {
@@ -276,4 +281,14 @@ header .mobile-img {
 
 .main-container .list-items ul li .todo-items:hover > img {
   display: block;
+}
+
+
+footer small {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: var(--dark-grayish-blue);
 }

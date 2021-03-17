@@ -61,8 +61,8 @@
       </div>
 
       <div class="list-items">
-        <ul>
-          <li>
+        <ul id="list-container">
+          <li draggable="true" class="individual-list">
             <input type="radio" name="list-items-radio" />
             <img src="images/icon-check.svg" alt="check-icon" />
             <div class="todo-items">
@@ -75,7 +75,7 @@
             </div>
           </li>
 
-          <li>
+          <li draggable="true" class="individual-list">
             <input type="radio" name="list-items-radio" />
             <img src="images/icon-check.svg" alt="check-icon" />
             <div class="todo-items">
@@ -88,7 +88,7 @@
             </div>
           </li>
 
-          <li>
+          <li draggable="true" class="individual-list">
             <input type="radio" name="list-items-radio" />
             <img src="images/icon-check.svg" alt="check-icon" />
             <div class="todo-items">
@@ -114,6 +114,11 @@
           </li>
         </ul>
       </div>
+      
     </main>
+
+    <footer>
+      <small>Drag and drop to reorder list</small>
+    </footer>
   </body>
 </html>
