@@ -66,7 +66,6 @@ header .mobile-img {
   justify-content: space-between;
   position: absolute;
   top: 80px;
-  
 }
 
 .main-container .header-section h1 {
@@ -92,7 +91,7 @@ header .mobile-img {
   top: 150px;
   display: flex;
   align-items: center;
-  box-shadow: 3px 20px 30px rgba(0,0,0,0.4);
+  box-shadow: 3px 20px 30px rgba(0, 0, 0, 0.4);
 }
 
 .main-container .create-list input[type="radio"] {
@@ -142,14 +141,19 @@ header .mobile-img {
   width: 37%;
   position: absolute;
   top: 225px;
-  box-shadow: 3px 20px 40px 10px rgba(0,0,0,0.4);
+  box-shadow: 3px 20px 40px 10px rgba(0, 0, 0, 0.4);
 }
 
 .main-container .list-items ul {
   list-style: none;
 }
 
-.main-container .list-items ul li {
+.main-container .list-items ul li .individual-list {
+  cursor: move;
+}
+
+.main-container .list-items ul li .individual-list,
+.main-container .list-items ul li:last-child {
   background: var(--very-dark-desaturated-blue);
   padding: 1rem;
   border-bottom: 1px solid var(--very-dark-grayish-blue);
@@ -238,25 +242,33 @@ header .mobile-img {
   background: var(--check-background);
 }
 
-.main-container .list-items ul li > img {
+.main-container .list-items ul li .individual-list > img {
   position: absolute;
   transform: translateX(40%);
   display: none;
+}
+
+.main-container .list-items ul li input[type="radio"]:checked::after {
+  background: var(--check-background);
 }
 
 .main-container
   .list-items
   ul
   li
-  input[type="radio"]:checked::after {
-  background: var(--check-background);
-}
-
-.main-container .list-items ul li input[type="radio"]:checked ~ img {
+  .individual-list
+  input[type="radio"]:checked
+  ~ img {
   display: block;
 }
 
-.main-container .list-items ul li input[type="radio"]:checked ~ .todo-items span {
+.main-container
+  .list-items
+  ul
+  li
+  input[type="radio"]:checked
+  ~ .todo-items
+  span {
   text-decoration: line-through;
   color: var(--very-dark-grayish-blue);
 }
@@ -282,7 +294,6 @@ header .mobile-img {
 .main-container .list-items ul li .todo-items:hover > img {
   display: block;
 }
-
 
 footer small {
   position: fixed;
