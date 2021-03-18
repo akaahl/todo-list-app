@@ -82,7 +82,13 @@ header .mobile-img {
   display: none;
 }
 
-.main-container .create-list {
+.main-container form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-container form .create-list {
   padding: 1rem;
   border-radius: 5px;
   background: var(--very-dark-desaturated-blue);
@@ -94,7 +100,7 @@ header .mobile-img {
   box-shadow: 3px 20px 30px rgba(0, 0, 0, 0.4);
 }
 
-.main-container .create-list input[type="radio"] {
+.main-container form .create-list input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -106,7 +112,7 @@ header .mobile-img {
   cursor: pointer;
 }
 
-.main-container .create-list input[type="radio"]::after {
+.main-container form .create-list input[type="checkbox"]::after {
   content: "";
   position: absolute;
   transform: translate(1px, 1px);
@@ -116,11 +122,11 @@ header .mobile-img {
   border-radius: 50%;
 }
 
-.main-container .create-list input[type="radio"]:hover {
+.main-container form .create-list input[type="checkbox"]:hover {
   background: var(--check-background);
 }
 
-.main-container .create-list input[type="text"] {
+.main-container form .create-list input[type="text"] {
   margin-left: 20px;
   appearance: none;
   -webkit-appearance: none;
@@ -133,27 +139,27 @@ header .mobile-img {
   font: 14px "Josefin Sans";
 }
 
-.main-container .create-list input[type="text"]::placeholder {
+.main-container form .create-list input[type="text"]::placeholder {
   color: var(--dark-grayish-blue);
 }
 
-.main-container .list-items {
+.main-container form .list-items {
   width: 37%;
   position: absolute;
   top: 225px;
   box-shadow: 3px 20px 40px 10px rgba(0, 0, 0, 0.4);
 }
 
-.main-container .list-items ul {
+.main-container form .list-items ul {
   list-style: none;
 }
 
-.main-container .list-items ul li .individual-list {
+.main-container form .list-items ul li .individual-list {
   cursor: move;
 }
 
-.main-container .list-items ul li .individual-list,
-.main-container .list-items ul li:last-child {
+.main-container form .list-items ul li .individual-list,
+.main-container form .list-items ul li:last-child {
   background: var(--very-dark-desaturated-blue);
   padding: 1rem;
   border-bottom: 1px solid var(--very-dark-grayish-blue);
@@ -164,16 +170,16 @@ header .mobile-img {
   font-weight: 400;
 }
 
-.main-container .list-items ul .individual-list.dragging {
+.main-container form .list-items ul .individual-list.dragging {
   opacity: 0.5;
 }
 
-.main-container .list-items ul li:first-child {
+.main-container form .list-items ul li:first-child .individual-list {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
 
-.main-container .list-items ul li:last-child {
+.main-container form .list-items ul li:last-child {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   border-bottom: none;
@@ -182,12 +188,12 @@ header .mobile-img {
   justify-content: space-between;
 }
 
-.main-container .list-items ul li:last-child .no-of-items {
+.main-container form .list-items ul li:last-child .no-of-items {
   color: var(--dark-grayish-blue);
 }
 
-.main-container .list-items ul li:last-child .items-status button,
-.main-container .list-items ul li:last-child .clear-items button {
+.main-container form .list-items ul li:last-child .items-status button,
+.main-container form .list-items ul li:last-child .clear-items button {
   background: none;
   border: none;
   outline: none;
@@ -198,25 +204,32 @@ header .mobile-img {
   cursor: pointer;
 }
 
-.main-container .list-items ul li:last-child .items-status button {
+.main-container form .list-items ul li:last-child .items-status button {
   margin-left: 15px;
 }
 
-.main-container .list-items ul li:last-child .items-status button:first-child {
+.main-container
+  form
+  .list-items
+  ul
+  li:last-child
+  .items-status
+  button:first-child {
   color: var(--bright-blue);
 }
 
 .main-container
+  form
   .list-items
   ul
   li:last-child
   .items-status
   button:not(:first-child):hover,
-.main-container .list-items ul li:last-child .clear-items button:hover {
+.main-container form .list-items ul li:last-child .clear-items button:hover {
   color: var(--very-light-gray);
 }
 
-.main-container .list-items ul li input[type="radio"] {
+.main-container form .list-items ul li input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -228,7 +241,7 @@ header .mobile-img {
   cursor: pointer;
 }
 
-.main-container .list-items ul li input[type="radio"]::after {
+.main-container form .list-items ul li input[type="checkbox"]::after {
   content: "";
   position: absolute;
   transform: translate(1px, 1px);
@@ -238,42 +251,44 @@ header .mobile-img {
   border-radius: 50%;
 }
 
-.main-container .list-items ul li input[type="radio"]:hover {
+.main-container form .list-items ul li input[type="checkbox"]:hover {
   background: var(--check-background);
 }
 
-.main-container .list-items ul li .individual-list > img {
+.main-container form .list-items ul li .individual-list > img {
   position: absolute;
   transform: translateX(40%);
   display: none;
 }
 
-.main-container .list-items ul li input[type="radio"]:checked::after {
+.main-container form .list-items ul li input[type="checkbox"]:checked::after {
   background: var(--check-background);
 }
 
 .main-container
+  form
   .list-items
   ul
   li
   .individual-list
-  input[type="radio"]:checked
+  input[type="checkbox"]:checked
   ~ img {
   display: block;
 }
 
 .main-container
+  form
   .list-items
   ul
   li
-  input[type="radio"]:checked
+  input[type="checkbox"]:checked
   ~ .todo-items
   span {
   text-decoration: line-through;
   color: var(--very-dark-grayish-blue);
 }
 
-.main-container .list-items ul li .todo-items {
+.main-container form .list-items ul li .todo-items {
   margin-left: 20px;
   width: 90%;
   display: flex;
@@ -281,17 +296,17 @@ header .mobile-img {
   justify-content: space-between;
 }
 
-.main-container .list-items ul li .todo-items span {
+.main-container form .list-items ul li .todo-items span {
   cursor: pointer;
   user-select: none;
 }
 
-.main-container .list-items ul li .todo-items img {
+.main-container form .list-items ul li .todo-items img {
   display: none;
   cursor: pointer;
 }
 
-.main-container .list-items ul li .todo-items:hover > img {
+.main-container form .list-items ul li .todo-items:hover > img {
   display: block;
 }
 

@@ -50,76 +50,34 @@
         />
       </div>
 
-      <div class="create-list">
-        <input type="radio" name="radio" id="create-list-radio" />
-        <input
-          type="text"
-          name="text"
-          id="create-list-text"
-          placeholder="Create a new todo.."
-        />
-      </div>
+      <form id="form-container">
+        <div class="create-list">
+          <input type="checkbox" name="radio" id="create-list-checkbox" />
+          <input
+            type="text"
+            name="text"
+            id="create-list-text"
+            placeholder="Create a new todo.."
+            autocomplete="off"
+          />
+        </div>
 
-      <div class="list-items">
-        <ul>
-          <li class="list-container">
-            <div class="individual-list" draggable="true">
-              <input type="radio" name="list-items-radio" />
-              <img src="images/icon-check.svg" alt="check-icon" />
-              <div class="todo-items">
-                <span>Eat Chicken</span>
-                <img
-                  src="images/icon-cross.svg"
-                  alt="cross-icon"
-                  id="delete-item-1"
-                />
+        <div class="list-items">
+          <ul id="ul-container">
+            <li id="footer-items">
+              <div class="no-of-items" id="no-of-items">3 items left</div>
+              <div class="items-status">
+                <button id="show-all">All</button>
+                <button id="show-active">Active</button>
+                <button id="show-completed">Completed</button>
               </div>
-            </div>
-          </li>
-
-          <li class="list-container">
-            <div class="individual-list" draggable="true">
-              <input type="radio" name="list-items-radio" />
-              <img src="images/icon-check.svg" alt="check-icon" />
-              <div class="todo-items">
-                <span>Drink water</span>
-                <img
-                  src="images/icon-cross.svg"
-                  alt="cross-icon"
-                  id="delete-item-2"
-                />
+              <div class="clear-items">
+                <button id="clear-completed">Clear Completed</button>
               </div>
-            </div>
-          </li>
-
-          <li class="list-container">
-            <div class="individual-list" draggable="true">
-              <input type="radio" name="list-items-radio" />
-              <img src="images/icon-check.svg" alt="check-icon" />
-              <div class="todo-items">
-                <span>Do project</span>
-                <img
-                  src="images/icon-cross.svg"
-                  alt="cross-icon"
-                  id="delete-item-3"
-                />
-              </div>
-            </div>
-          </li>
-
-          <li>
-            <div class="no-of-items">3 items left</div>
-            <div class="items-status">
-              <button id="show-all">All</button>
-              <button id="show-active">Active</button>
-              <button id="show-completed">Completed</button>
-            </div>
-            <div class="clear-items">
-              <button id="clear-completed">Clear Completed</button>
-            </div>
-          </li>
-        </ul>
-      </div>
+            </li>
+          </ul>
+        </div>
+      </form>
     </main>
 
     <footer>
