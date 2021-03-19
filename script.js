@@ -9,7 +9,7 @@ function updateItemsLeft() {
   itemsLeft.innerHTML = `${ulContainer.childElementCount - 1} items left`;
 }
 
-updateItemsLeft();
+// updateItemsLeft();
 
 formContainer.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -43,10 +43,12 @@ formContainer.addEventListener("submit", (e) => {
 function updateChecklist() {
   const checkbox = document.querySelectorAll(".cross-checklist");
   checkbox.forEach((item) => {
-    if (item.checked) {
-      //   updateItemsLeft();
-      console.log(true);
-    }
+    item.addEventListener("change", () => {
+      checkedItems = Array.from(checkbox).filter((item) => item.checked);
+      itemsLeft.innerHTML = `${
+        ulContainer.childElementCount - checkedItems.length - 1
+      } items left`;
+    });
   });
 }
 
