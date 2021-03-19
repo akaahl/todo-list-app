@@ -3,6 +3,7 @@ const formContainer = document.getElementById("form-container");
 const ulContainer = document.getElementById("ul-container");
 const footerItems = document.getElementById("footer-items");
 const itemsLeft = document.getElementById("no-of-items");
+const buttons = document.querySelectorAll("button");
 let inputText = document.getElementById("create-list-text");
 
 function updateItemsLeft() {
@@ -37,6 +38,20 @@ formContainer.addEventListener("submit", (e) => {
     dragAndDrop();
     updateItemsLeft();
     updateChecklist();
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const checkbox = Array.from(
+          document.querySelectorAll(".cross-checklist")
+        );
+
+        checkbox.forEach((item) => {
+          if (button.innerText == "Active") {
+            console.log("true");
+          }
+        });
+      });
+    });
   }
 });
 
