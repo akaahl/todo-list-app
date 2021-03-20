@@ -154,6 +154,10 @@ header .mobile-img {
   list-style: none;
 }
 
+.main-container form .list-items ul li.hide {
+  display: none;
+}
+
 .main-container form .list-items ul li .individual-list {
   cursor: move;
 }

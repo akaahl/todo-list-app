@@ -4,7 +4,13 @@ const ulContainer = document.getElementById("ul-container");
 const footerItems = document.getElementById("footer-items");
 const itemsLeft = document.getElementById("no-of-items");
 const buttons = document.querySelectorAll("button");
+const showAllBtn = document.getElementById("show-all");
+const showActiveBtn = document.getElementById("show-active");
+const showCompletedBtn = document.getElementById("show-completed");
+const clearCompletedBtn = document.getElementById("clear-completed");
+const checkbox = document.querySelectorAll(".cross-checklist");
 let inputText = document.getElementById("create-list-text");
+let liElement;
 
 function updateItemsLeft() {
   itemsLeft.innerHTML = `${ulContainer.childElementCount - 1} items left`;
@@ -38,31 +44,95 @@ formContainer.addEventListener("submit", (e) => {
     dragAndDrop();
     updateItemsLeft();
     updateChecklist();
-
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const checkbox = Array.from(
-          document.querySelectorAll(".cross-checklist")
-        );
-
-        checkbox.forEach((item) => {
-          if (button.innerText == "Active") {
-            console.log("true");
-          }
-        });
-      });
-    });
   }
+});
+
+// Buttons event listener
+// buttons.forEach((button) => {
+//   button.addEventListener("click", () => {
+//     const checkbox = Array.from(document.querySelectorAll(".cross-checklist"));
+//     const checkedLength = checkbox.filter((item) => item.checked).length;
+//     const nonCheckedLength = checkbox.filter((item) => !item.checked).length;
+//     checkbox.forEach((item) => {
+//       const liElement = item.parentElement.parentElement;
+//       if (button.innerText == "Active") {
+//         if (item.checked) {
+//           // document.querySelectorAll(".list-container").forEach((list) => {
+//           //   if (list.classList.contains("hide")) {
+//           //     list.classList.remove("hide");
+//           //   }
+//           // });
+//           liElement.classList.add("hide");
+//         }
+//       } else if (button.innerText == "All") {
+//         liElement.classList.remove("hide");
+//       } else if (button.innerText == "Completed") {
+//         if (!item.checked && checkedLength >= 0) {
+//           // document.querySelectorAll(".list-container").forEach((list) => {
+//           //   if (list.classList.contains("hide")) {
+//           //     list.classList.remove("hide");
+//           //   }
+//           // });
+//           liElement.classList.add("hide");
+//         }
+//       }
+//     });
+//   });
+// });
+showAllBtn.addEventListener("click", () => {
+  liElement = document.querySelectorAll(".list-container");
+  liElement.forEach((item) => {
+    item.classList.remove("hide");
+  });
+});
+
+showActiveBtn.addEventListener("click", () => {
+  liElement = document.querySelectorAll(".list-container");
+  liElement.forEach((item) => {
+    if (item.classList.contains("completed")) {
+      item.classList.add("hide");
+    } else {
+      item.classList.remove("hide");
+    }
+  });
+});
+
+showCompletedBtn.addEventListener("click", () => {
+  liElement = document.querySelectorAll(".list-container");
+  liElement.forEach((item) => {
+    if (!item.classList.contains("completed")) {
+      item.classList.add("hide");
+    } else {
+      item.classList.remove("hide");
+    }
+  });
+});
+
+clearCompletedBtn.addEventListener("click", () => {
+  liElement = document.querySelectorAll(".list-container");
+  liElement.forEach((item) => {
+    if (item.classList.contains("completed")) {
+      item.remove();
+    }
+  });
+
+  updateChecklist();
 });
 
 function updateChecklist() {
   const checkbox = document.querySelectorAll(".cross-checklist");
   checkbox.forEach((item) => {
     item.addEventListener("change", () => {
-      checkedItems = Array.from(checkbox).filter((item) => item.checked);
+      let checkedItems = Array.from(checkbox).filter((item) => item.checked);
       itemsLeft.innerHTML = `${
         ulContainer.childElementCount - checkedItems.length - 1
       } items left`;
+
+      if (item.checked) {
+        item.parentElement.parentElement.classList.add("completed");
+      } else {
+        item.parentElement.parentElement.classList.remove("completed");
+      }
     });
   });
 }
