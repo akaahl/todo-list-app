@@ -10,7 +10,7 @@ const showCompletedBtn = document.getElementById("show-completed");
 const clearCompletedBtn = document.getElementById("clear-completed");
 const checkbox = document.querySelectorAll(".cross-checklist");
 let inputText = document.getElementById("create-list-text");
-let liElement;
+let liElement, deleteBtns;
 
 function updateItemsLeft() {
   itemsLeft.innerHTML = `${ulContainer.childElementCount - 1} items left`;
@@ -20,7 +20,6 @@ function updateItemsLeft() {
 
 formContainer.addEventListener("submit", (e) => {
   e.preventDefault();
-
   if (inputText.value) {
     let liContainer = document.createElement("li");
     liContainer.classList.add("list-container");
@@ -34,6 +33,7 @@ formContainer.addEventListener("submit", (e) => {
                     src="images/icon-cross.svg"
                     alt="cross-icon"
                     class="delete-btn"
+                    onclick="deleteBtnFunction()"
                   />
                 </div>
               </div>
@@ -46,6 +46,12 @@ formContainer.addEventListener("submit", (e) => {
     updateChecklist();
   }
 });
+
+function deleteBtnFunction() {
+  document
+    .querySelector(".delete-btn")
+    .parentElement.parentElement.parentElement.remove();
+}
 
 // Buttons event listener
 // buttons.forEach((button) => {
