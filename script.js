@@ -1,4 +1,4 @@
-// Create todos
+// Declare variables
 const formContainer = document.getElementById("form-container");
 const ulContainer = document.getElementById("ul-container");
 const footerItems = document.getElementById("footer-items");
@@ -10,19 +10,19 @@ const showCompletedBtn = document.getElementById("show-completed");
 const clearCompletedBtn = document.getElementById("clear-completed");
 const checkbox = document.querySelectorAll(".cross-checklist");
 let inputText = document.getElementById("create-list-text");
-let liElement, deleteBtns;
+let liElement;
 
-function updateItemsLeft() {
-  itemsLeft.innerHTML = `${ulContainer.childElementCount - 1} items left`;
-}
-
-function quantityLeft() {
+function updateTodoItems() {
   const completedList = document.querySelectorAll(".completed").length;
   const incompleteList = document.querySelectorAll(".list-container").length;
-  itemsLeft.innerHTML = `${incompleteList - completedList} items left`;
-}
 
-function updateChecklist() {
+  if (completedList) {
+    itemsLeft.innerHTML = `${incompleteList - completedList} items left`;
+  } else if (!completedList) {
+    itemsLeft.innerHTML = `${ulContainer.childElementCount - 1} items left`;
+  }
+
+  // For checkboxes
   const checkbox = document.querySelectorAll(".cross-checklist");
   checkbox.forEach((item) => {
     item.addEventListener("change", () => {
@@ -38,6 +38,12 @@ function updateChecklist() {
       }
     });
   });
+}
+
+function deleteItem(arg) {
+  const parentElement = arg.parentElement.parentElement.parentElement;
+  parentElement.remove();
+  updateTodoItems();
 }
 
 formContainer.addEventListener("submit", (e) => {
@@ -64,92 +70,85 @@ formContainer.addEventListener("submit", (e) => {
     ulContainer.insertBefore(liContainer, footerItems);
     inputText.value = "";
     dragAndDrop();
-    updateItemsLeft();
-    updateChecklist();
+    updateTodoItems();
+    buttonsEvent();
   }
 });
 
-function deleteItem(arg) {
-  const parentElement = arg.parentElement.parentElement.parentElement;
-  parentElement.remove();
-  updateItemsLeft();
-  updateChecklist();
-  quantityLeft();
-}
-
-// deleteBtnFunction();
-
 // Buttons event listener
-// buttons.forEach((button) => {
-//   button.addEventListener("click", () => {
-//     const checkbox = Array.from(document.querySelectorAll(".cross-checklist"));
-//     const checkedLength = checkbox.filter((item) => item.checked).length;
-//     const nonCheckedLength = checkbox.filter((item) => !item.checked).length;
-//     checkbox.forEach((item) => {
-//       const liElement = item.parentElement.parentElement;
-//       if (button.innerText == "Active") {
-//         if (item.checked) {
-//           // document.querySelectorAll(".list-container").forEach((list) => {
-//           //   if (list.classList.contains("hide")) {
-//           //     list.classList.remove("hide");
-//           //   }
-//           // });
-//           liElement.classList.add("hide");
-//         }
-//       } else if (button.innerText == "All") {
-//         liElement.classList.remove("hide");
-//       } else if (button.innerText == "Completed") {
-//         if (!item.checked && checkedLength >= 0) {
-//           // document.querySelectorAll(".list-container").forEach((list) => {
-//           //   if (list.classList.contains("hide")) {
-//           //     list.classList.remove("hide");
-//           //   }
-//           // });
-//           liElement.classList.add("hide");
-//         }
-//       }
-//     });
-//   });
-// });
-showAllBtn.addEventListener("click", () => {
+buttons.forEach((button) => {
   liElement = document.querySelectorAll(".list-container");
-  liElement.forEach((item) => {
-    item.classList.remove("hide");
-  });
-});
 
-showActiveBtn.addEventListener("click", () => {
-  liElement = document.querySelectorAll(".list-container");
-  liElement.forEach((item) => {
-    if (item.classList.contains("completed")) {
-      item.classList.add("hide");
-    } else {
-      item.classList.remove("hide");
+  button.addEventListener("click", (e) => {
+    if (e.target.innerText == "All") {
+      console.log(liElement);
+      liElement.forEach((item) => {
+        item.classList.remove("hide");
+      });
+    } else if (e.target.innerText == "Active") {
+      liElement.forEach((item) => {
+        if (item.classList.contains("completed")) {
+          item.classList.add("hide");
+        } else {
+          item.classList.remove("hide");
+        }
+      });
+    } else if (e.target.innerText == "Completed") {
+      liElement.forEach((item) => {
+        if (!item.classList.contains("completed")) {
+          item.classList.add("hide");
+        } else {
+          item.classList.remove("hide");
+        }
+      });
+    } else if (e.target.innerText == "Clear Completed") {
+      liElement.forEach((item) => {
+        if (item.classList.contains("completed")) {
+          item.remove();
+        }
+      });
+      updateTodoItems();
     }
   });
 });
 
-showCompletedBtn.addEventListener("click", () => {
-  liElement = document.querySelectorAll(".list-container");
-  liElement.forEach((item) => {
-    if (!item.classList.contains("completed")) {
-      item.classList.add("hide");
-    } else {
-      item.classList.remove("hide");
-    }
-  });
-});
+function buttonsEvent() {
+  buttons.forEach((button) => {
+    liElement = document.querySelectorAll(".list-container");
 
-clearCompletedBtn.addEventListener("click", () => {
-  liElement = document.querySelectorAll(".list-container");
-  liElement.forEach((item) => {
-    if (item.classList.contains("completed")) {
-      item.remove();
-    }
+    button.addEventListener("click", (e) => {
+      if (e.target.innerText == "All") {
+        console.log(liElement);
+        liElement.forEach((item) => {
+          item.classList.remove("hide");
+        });
+      } else if (e.target.innerText == "Active") {
+        liElement.forEach((item) => {
+          if (item.classList.contains("completed")) {
+            item.classList.add("hide");
+          } else {
+            item.classList.remove("hide");
+          }
+        });
+      } else if (e.target.innerText == "Completed") {
+        liElement.forEach((item) => {
+          if (!item.classList.contains("completed")) {
+            item.classList.add("hide");
+          } else {
+            item.classList.remove("hide");
+          }
+        });
+      } else if (e.target.innerText == "Clear Completed") {
+        liElement.forEach((item) => {
+          if (item.classList.contains("completed")) {
+            item.remove();
+          }
+        });
+        updateTodoItems();
+      }
+    });
   });
-
-  updateChecklist();
-});
+}
 
 // Drag and drop feature
 function dragAndDrop() {
@@ -181,7 +180,7 @@ function dragAndDrop() {
   });
 }
 
-// Track the mouse Y position between elements
+// Track the mouse Y position between elements; to be used in dragAndDrop()
 function getDragAfterElement(container, y) {
   const draggableElements = [
     ...container.querySelectorAll(".individual-list:not(.dragging)"),
