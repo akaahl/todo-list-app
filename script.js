@@ -16,7 +16,29 @@ function updateItemsLeft() {
   itemsLeft.innerHTML = `${ulContainer.childElementCount - 1} items left`;
 }
 
-// updateItemsLeft();
+function quantityLeft() {
+  const completedList = document.querySelectorAll(".completed").length;
+  const incompleteList = document.querySelectorAll(".list-container").length;
+  itemsLeft.innerHTML = `${incompleteList - completedList} items left`;
+}
+
+function updateChecklist() {
+  const checkbox = document.querySelectorAll(".cross-checklist");
+  checkbox.forEach((item) => {
+    item.addEventListener("change", () => {
+      let checkedItems = Array.from(checkbox).filter((item) => item.checked);
+      itemsLeft.innerHTML = `${
+        ulContainer.childElementCount - checkedItems.length - 1
+      } items left`;
+
+      if (item.checked) {
+        item.parentElement.parentElement.classList.add("completed");
+      } else {
+        item.parentElement.parentElement.classList.remove("completed");
+      }
+    });
+  });
+}
 
 formContainer.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -33,7 +55,7 @@ formContainer.addEventListener("submit", (e) => {
                     src="images/icon-cross.svg"
                     alt="cross-icon"
                     class="delete-btn"
-                    onclick="deleteBtnFunction()"
+                    onclick="deleteItem(this)"
                   />
                 </div>
               </div>
@@ -47,11 +69,15 @@ formContainer.addEventListener("submit", (e) => {
   }
 });
 
-function deleteBtnFunction() {
-  document
-    .querySelector(".delete-btn")
-    .parentElement.parentElement.parentElement.remove();
+function deleteItem(arg) {
+  const parentElement = arg.parentElement.parentElement.parentElement;
+  parentElement.remove();
+  updateItemsLeft();
+  updateChecklist();
+  quantityLeft();
 }
+
+// deleteBtnFunction();
 
 // Buttons event listener
 // buttons.forEach((button) => {
@@ -124,24 +150,6 @@ clearCompletedBtn.addEventListener("click", () => {
 
   updateChecklist();
 });
-
-function updateChecklist() {
-  const checkbox = document.querySelectorAll(".cross-checklist");
-  checkbox.forEach((item) => {
-    item.addEventListener("change", () => {
-      let checkedItems = Array.from(checkbox).filter((item) => item.checked);
-      itemsLeft.innerHTML = `${
-        ulContainer.childElementCount - checkedItems.length - 1
-      } items left`;
-
-      if (item.checked) {
-        item.parentElement.parentElement.classList.add("completed");
-      } else {
-        item.parentElement.parentElement.classList.remove("completed");
-      }
-    });
-  });
-}
 
 // Drag and drop feature
 function dragAndDrop() {
