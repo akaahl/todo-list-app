@@ -27,11 +27,11 @@
 }
 
 body {
-  /* width: 100vw; */
   height: 100vh;
   font-family: "Josefin Sans", sans-serif;
   font-size: 18px;
   background: var(--very-dark-blue);
+  overflow-x: hidden;
 }
 
 header {
@@ -60,7 +60,7 @@ header .mobile-img {
 }
 
 .main-container .header-section {
-  width: 37%;
+  width: 500px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -84,17 +84,18 @@ header .mobile-img {
 
 .main-container form {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 500px;
+  margin-top: -10%;
 }
 
 .main-container form .create-list {
   padding: 1rem;
   border-radius: 5px;
   background: var(--very-dark-desaturated-blue);
-  width: 37%;
-  position: absolute;
-  top: 150px;
+  width: 100%;
   display: flex;
   align-items: center;
   box-shadow: 3px 20px 30px rgba(0, 0, 0, 0.4);
@@ -144,9 +145,8 @@ header .mobile-img {
 }
 
 .main-container form .list-items {
-  width: 37%;
-  position: absolute;
-  top: 225px;
+  width: 100%;
+  margin-top: 30px;
   box-shadow: 3px 20px 40px 10px rgba(0, 0, 0, 0.4);
 }
 
@@ -303,6 +303,9 @@ header .mobile-img {
 .main-container form .list-items ul li .todo-items span {
   cursor: pointer;
   user-select: none;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  width: 100%;
 }
 
 .main-container form .list-items ul li .todo-items img {
@@ -314,11 +317,99 @@ header .mobile-img {
   display: block;
 }
 
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0;
+}
+
 footer small {
-  position: fixed;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+  text-align: center;
   font-size: 14px;
   color: var(--dark-grayish-blue);
+  margin-bottom: 30px;
+}
+
+@media (max-width: 1000px) {
+  .main-container form {
+    margin-top: -7%;
+  }
+}
+
+@media (max-width: 750px) {
+  .main-container form {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 550px) {
+  header .desktop-img {
+    display: none;
+  }
+
+  header .mobile-img {
+    display: block;
+  }
+
+  .main-container .header-section {
+    width: 450px;
+  }
+
+  .main-container form {
+    width: 450px;
+    margin-top: -28%;
+  }
+}
+
+@media (max-width: 450px) {
+  .main-container .header-section {
+    width: 400px;
+  }
+
+  .main-container form {
+    width: 400px;
+    margin-top: -20%;
+  }
+
+  .main-container form .list-items ul li:last-child,
+  .main-container form .list-items ul li:last-child .items-status button,
+  .main-container form .list-items ul li:last-child .clear-items button {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .main-container .header-section {
+    width: 350px;
+  }
+
+  .main-container form {
+    width: 350px;
+    margin-top: -20%;
+  }
+
+  .main-container form .list-items ul li:last-child,
+  .main-container form .list-items ul li:last-child .items-status button,
+  .main-container form .list-items ul li:last-child .clear-items button {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 375px) {
+  .main-container .header-section {
+    width: 325px;
+  }
+
+  .main-container form {
+    width: 325px;
+    margin-top: -10%;
+  }
+  .main-container form .list-items ul li input[type="checkbox"]::after {
+    transform: translate(0.5px, 1px);
+  }
+
+  .main-container form .list-items ul li:last-child .items-status button {
+    margin-left: 5px;
+  }
 }
