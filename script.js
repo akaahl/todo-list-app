@@ -81,7 +81,6 @@ buttons.forEach((button) => {
 
   button.addEventListener("click", (e) => {
     if (e.target.innerText == "All") {
-      console.log(liElement);
       liElement.forEach((item) => {
         item.classList.remove("hide");
       });
@@ -118,7 +117,6 @@ function buttonsEvent() {
 
     button.addEventListener("click", (e) => {
       if (e.target.innerText == "All") {
-        console.log(liElement);
         liElement.forEach((item) => {
           item.classList.remove("hide");
         });
@@ -170,11 +168,30 @@ function dragAndDrop() {
       e.preventDefault();
       const afterElement = getDragAfterElement(container, e.clientY);
       const draggable = document.querySelector(".dragging");
-
-      if (afterElement == null) {
-        container.appendChild(draggable);
-      } else {
-        container.insertBefore(draggable, afterElement);
+      if (afterElement !== undefined) {
+        const afterElementParent = afterElement.parentElement;
+        const draggableParent = draggable.parentElement;
+        afterElementParent.appendChild(draggable);
+        draggableParent.appendChild(afterElement);
+        if (
+          draggableParent.classList.contains("completed") &&
+          !afterElementParent.classList.contains("completed")
+        ) {
+          draggableParent.classList.remove("completed");
+          afterElementParent.classList.add("completed");
+        } else if (
+          afterElementParent.classList.contains("completed") &&
+          !draggableParent.classList.contains("completed")
+        ) {
+          afterElementParent.classList.remove("completed");
+          draggableParent.classList.add("completed");
+        } else if (
+          afterElementParent.classList.contains("completed") &&
+          draggableParent.classList.contains("completed")
+        ) {
+          afterElementParent.appendChild(draggable);
+          draggableParent.appendChild(afterElement);
+        }
       }
     });
   });
