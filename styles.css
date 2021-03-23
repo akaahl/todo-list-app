@@ -156,7 +156,8 @@ header .desktop-img {
   object-fit: cover;
 }
 
-header .desktop-img-light {
+header .desktop-img-light,
+.mobile-img-light {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -477,7 +478,16 @@ footer small {
 }
 
 @media (max-width: 550px) {
-  header .desktop-img {
+  body.light-mode header .desktop-img-light,
+  body.light-mode header .mobile-img {
+    display: none;
+  }
+
+  body.light-mode header .mobile-img-light {
+    display: block;
+  }
+
+  bosy header .desktop-img {
     display: none;
   }
 
