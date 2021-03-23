@@ -104,11 +104,6 @@ body.light-mode .main-container form .list-items ul li:last-child {
   border-bottom: 1px solid var(--very-light-grayish-blue);
 }
 
-/* body.light-mode .main-container form .list-items ul li:last-child {
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-} */
-
 body.light-mode
   .main-container
   form
@@ -117,6 +112,37 @@ body.light-mode
   li
   input[type="checkbox"]:checked::after {
   background: var(--check-background);
+}
+
+body.light-mode
+  .main-container
+  form
+  .list-items
+  ul
+  li
+  input[type="checkbox"]:checked
+  ~ .todo-items
+  span {
+  color: var(--light-grayish-blue);
+}
+
+body.light-mode
+  .main-container
+  form
+  .list-items
+  ul
+  li:last-child
+  .items-status
+  button:not(:first-child):hover,
+body.light-mode
+  .main-container
+  form
+  .list-items
+  ul
+  li:last-child
+  .clear-items
+  button:hover {
+  color: var(--very-dark-grayish-blue);
 }
 
 header {
