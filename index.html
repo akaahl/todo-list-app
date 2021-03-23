@@ -33,20 +33,36 @@
         alt="background-img"
       />
       <img
+        src="images/bg-desktop-light.jpg"
+        class="desktop-img-light"
+        alt="background-img-light"
+      />
+      <img
         src="images/bg-mobile-dark.jpg"
         class="mobile-img"
         alt="background-img"
+      />
+      <img
+        src="images/bg-mobile-light.jpg"
+        class="mobile-img-light"
+        alt="background-img-light"
       />
     </header>
 
     <main class="main-container">
       <div class="header-section">
         <h1>Todo</h1>
-        <img src="images/icon-sun.svg" class="day-mode" alt="color-mode-logo" />
+        <img
+          src="images/icon-sun.svg"
+          class="day-mode"
+          alt="color-mode-logo"
+          id="day-mode"
+        />
         <img
           src="images/icon-moon.svg"
           class="night-mode"
           alt="color-mode-logo"
+          id="night-mode"
         />
       </div>
 
@@ -67,12 +83,16 @@
             <li id="footer-items">
               <div class="no-of-items" id="no-of-items">No. of items</div>
               <div class="items-status">
-                <button id="show-all">All</button>
-                <button id="show-active">Active</button>
-                <button id="show-completed">Completed</button>
+                <button id="show-all" class="show-all">All</button>
+                <button id="show-active" class="show-active">Active</button>
+                <button id="show-completed" class="show-completed">
+                  Completed
+                </button>
               </div>
               <div class="clear-items">
-                <button id="clear-completed">Clear Completed</button>
+                <button id="clear-completed" class="clear-completed">
+                  Clear Completed
+                </button>
               </div>
             </li>
           </ul>

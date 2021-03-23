@@ -34,6 +34,91 @@ body {
   overflow-x: hidden;
 }
 
+/* Light mode / Dark mode */
+
+body.light-mode {
+  background: var(--very-light-gray);
+}
+
+body.light-mode header .desktop-img {
+  display: none;
+}
+
+body.light-mode header .desktop-img-light {
+  display: block;
+}
+
+body.light-mode .main-container form .list-items {
+  box-shadow: 3px 20px 40px 10px rgba(0, 0, 0, 0.1),
+    inset 3px 20px 40px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .main-container form .create-list,
+body.light-mode .main-container form .create-list input[type="checkbox"]::after,
+body.light-mode .main-container form .create-list input[type="text"],
+body.light-mode .main-container form .list-items ul li .individual-list,
+body.light-mode .main-container form .list-items ul li:last-child,
+body.light-mode
+  .main-container
+  form
+  .list-items
+  ul
+  li
+  input[type="checkbox"]::after {
+  background: var(--very-light-gray);
+  color: var(--very-dark-grayish-blue);
+}
+
+body.light-mode .main-container form .create-list input[type="checkbox"],
+body.light-mode .main-container form .list-items ul li input[type="checkbox"] {
+  background: var(--light-grayish-blue);
+}
+
+body.light-mode .main-container form .create-list input[type="checkbox"]:hover,
+body.light-mode
+  .main-container
+  form
+  .list-items
+  ul
+  li
+  input[type="checkbox"]:hover,
+body.light-mode
+  .main-container
+  form
+  .list-items
+  ul
+  li
+  input[type="checkbox"]:checked,
+body.light-mode
+  .main-container
+  form
+  .list-items
+  ul
+  li
+  input[type="checkbox"]:checked::after {
+  background: var(--check-background);
+}
+
+body.light-mode .main-container form .list-items ul li .individual-list,
+body.light-mode .main-container form .list-items ul li:last-child {
+  border-bottom: 1px solid var(--very-light-grayish-blue);
+}
+
+/* body.light-mode .main-container form .list-items ul li:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+} */
+
+body.light-mode
+  .main-container
+  form
+  .list-items
+  ul
+  li
+  input[type="checkbox"]:checked::after {
+  background: var(--check-background);
+}
+
 header {
   width: 100%;
   height: auto;
@@ -45,7 +130,21 @@ header .desktop-img {
   object-fit: cover;
 }
 
+header .desktop-img-light {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
 header .mobile-img {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+header .mobile-img-light {
   display: none;
   width: 100%;
   height: 100%;
@@ -208,6 +307,13 @@ header .mobile-img {
   cursor: pointer;
 }
 
+.show-all:active,
+.show-active:active,
+.show-completed:active,
+.clear-completed:active {
+  transform: scale(0.95);
+}
+
 .main-container form .list-items ul li:last-child .items-status button {
   margin-left: 15px;
 }
@@ -278,6 +384,7 @@ header .mobile-img {
   input[type="checkbox"]:checked
   ~ img {
   display: block;
+  pointer-events: none;
 }
 
 .main-container

@@ -1,4 +1,7 @@
 // Declare variables
+const body = document.body;
+const dayModeBtn = document.getElementById("day-mode");
+const nightModeBtn = document.getElementById("night-mode");
 const formContainer = document.getElementById("form-container");
 const ulContainer = document.getElementById("ul-container");
 const footerItems = document.getElementById("footer-items");
@@ -11,6 +14,19 @@ const clearCompletedBtn = document.getElementById("clear-completed");
 const checkbox = document.querySelectorAll(".cross-checklist");
 let inputText = document.getElementById("create-list-text");
 let liElement;
+
+// Dark / light mode
+dayModeBtn.addEventListener("click", () => {
+  dayModeBtn.style.display = "none";
+  nightModeBtn.style.display = "block";
+  body.classList.toggle("light-mode");
+});
+
+nightModeBtn.addEventListener("click", () => {
+  dayModeBtn.style.display = "block";
+  nightModeBtn.style.display = "none";
+  body.classList.toggle("light-mode");
+});
 
 function updateTodoItems() {
   const completedList = document.querySelectorAll(".completed").length;
